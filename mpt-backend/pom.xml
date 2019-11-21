@@ -104,7 +104,7 @@
                 <executions>
                     <execution>
                         <id>tag latest</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>build</goal>
                             <goal>tag</goal>
@@ -118,7 +118,7 @@
                     </execution>
                     <execution>
                         <id>tag version</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>build</goal>
                             <goal>tag</goal>
