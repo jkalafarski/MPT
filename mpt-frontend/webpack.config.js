@@ -1,5 +1,8 @@
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const appEntryFile = 'index.jsx';
 const appIndexFile = 'index.html';
@@ -7,13 +10,16 @@ const appIndexFile = 'index.html';
 const pathSrc = path.resolve(__dirname, 'src');
 const pathDist = path.resolve(__dirname, 'public');
 
+const isProductionMode = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: {
     app: `${pathSrc}/${appEntryFile}`,
   },
   output: {
     path: pathDist,
-    filename: '[name].min.js',
+    publicPath: '/',
+    filename: '[name].[hash].min.js',
   },
   bail: true,
   resolve: {
@@ -29,9 +35,30 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+
+      {
+        test: /\.scss$/,
+        use: [
+          isProductionMode
+            ? {
+                loader: MiniCssExtractPlugin.loader,
+                options: { hmr: process.env.NODE_ENV === 'development' },
+              }
+            : 'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: `${pathSrc}/${appIndexFile}` })],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
+    }),
+    new HtmlWebpackPlugin({ template: `${pathSrc}/${appIndexFile}` }),
+    new CleanWebpackPlugin(),
+  ],
   devServer: {
     contentBase: pathDist,
     compress: true,
