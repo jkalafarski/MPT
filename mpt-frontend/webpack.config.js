@@ -62,7 +62,7 @@ module.exports = {
   devServer: {
     contentBase: pathDist,
     compress: true,
-    port: 8080,
+    port: 8585,
     hot: true,
     open: true,
     overlay: true,
