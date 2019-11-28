@@ -11,6 +11,8 @@ public class PropertiesService {
 
     @Value("${mtp.build.application.version}")
     private String buildVersion;
+    @Value("${mtp.security.cors.hosts}")
+    private String[] corsHosts;
 
     public BuildVersion getBuildVersion() {
         return new BuildVersion(buildVersion);

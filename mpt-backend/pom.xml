@@ -7,7 +7,7 @@
     <groupId>mpt</groupId>
     <artifactId>mpt-backend</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +15,7 @@
         <java.version>12</java.version>
 
         <springboot.starter.parent.version>2.1.1.RELEASE</springboot.starter.parent.version>
+        <springboot.security.version>2.2.1.RELEASE</springboot.security.version>
         <junit.version>4.9</junit.version>
         <maven-lombok.version>1.18.10.0</maven-lombok.version>
         <firebase.version>3.0.3</firebase.version>
@@ -29,6 +30,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.starter.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${springboot.security.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -108,6 +115,7 @@
                         <goals>
                             <goal>build</goal>
                             <goal>tag</goal>
+                            <goal>push</goal>
                         </goals>
                         <configuration>
                             <tag>latest</tag>
@@ -122,6 +130,7 @@
                         <goals>
                             <goal>build</goal>
                             <goal>tag</goal>
+                            <goal>push</goal>
                         </goals>
                         <configuration>
                             <tag>${project.version}</tag>
