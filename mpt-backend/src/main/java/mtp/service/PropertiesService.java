@@ -13,6 +13,8 @@ public class PropertiesService {
     private String buildVersion;
     @Value("${mtp.security.cors.hosts}")
     private String[] corsHosts;
+    @Value("${firebase.admin.sdk.key.path}")
+    private String firebaseAdminSdkKeyPath;
 
     public BuildVersion getBuildVersion() {
         return new BuildVersion(buildVersion);
