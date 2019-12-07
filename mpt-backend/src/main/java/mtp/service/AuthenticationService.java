@@ -20,8 +20,13 @@ public class AuthenticationService {
 
     public String authenticateUser(UserLoginDTO userDTO)
             throws MptUnauthorisedException, MptNotFoundException {
-        AuthenticationUser user =authenticationUserDAO
-                .getAuthenticationUser(userDTO.getUsername(), userDTO.getPassword());
+        AuthenticationUser user = authenticationUserDAO
+                .getAuthenticationUser(userDTO.getUsername())
+                .orElseThrow(() ->
+                        new MptUnauthorisedException("User not found in mocked DB"));
+        if(!user.getPassword().equals(userDTO.getPassword())) {
+            throw new MptUnauthorisedException("Wrong user password");
+        }
         return createToken(user);
     }
 

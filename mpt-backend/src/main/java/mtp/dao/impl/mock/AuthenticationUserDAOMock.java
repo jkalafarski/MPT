@@ -11,13 +11,11 @@ import java.util.Optional;
 
 public class AuthenticationUserDAOMock implements AuthenticationUserDAO {
     @Override
-    public AuthenticationUser getAuthenticationUser(String username, String password) {
+    public Optional<AuthenticationUser> getAuthenticationUser(String username) {
         List<AuthenticationUser> users = getMockedAuthenticationUsers();
-        Optional<AuthenticationUser> user = users.stream()
-                .filter(val -> username.equals(val.getUsername())
-                        && password.equals(val.getPassword()))
+        return users.stream()
+                .filter(val -> username.equals(val.getUsername()))
                 .findAny();
-        return user.orElseThrow(() -> new MptNotFoundException("User not found in mocked DB"));
     }
 
     @Override
