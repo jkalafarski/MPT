@@ -1,22 +1,22 @@
 package mtp.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import mtp.controller.exception.MptNotFoundException;
 import mtp.controller.exception.MptUnauthorisedException;
 import mtp.dao.interfaces.AuthenticationUserDAO;
 import mtp.dto.UserLoginDTO;
 import mtp.model.user.AuthenticationUser;
+import mtp.service.token.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Base64;
 
 
 @Service
 public class AuthenticationService {
     @Autowired
     private AuthenticationUserDAO authenticationUserDAO;
+
+    @Autowired
+    private TokenService tokenService;
 
     public String authenticateUser(UserLoginDTO userDTO)
             throws MptUnauthorisedException, MptNotFoundException {
@@ -27,16 +27,8 @@ public class AuthenticationService {
         if(!user.getPassword().equals(userDTO.getPassword())) {
             throw new MptUnauthorisedException("Wrong user password");
         }
-        return createToken(user);
+        return tokenService.generateToken(user);
     }
 
-    private String createToken(AuthenticationUser user)  {
-        try {
-            return Base64.getEncoder()
-                    .encodeToString(new ObjectMapper().writeValueAsBytes(user));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            throw new MptUnauthorisedException("Error while creating token" ,e);
-        }
-    }
+    // TODO: registaration service - validation update database
 }
