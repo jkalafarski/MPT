@@ -30,5 +30,16 @@ public class AuthenticationService {
         return tokenService.generateToken(user);
     }
 
-    // TODO: registaration service - validation update database
+    /*
+    TODO: singUp method:
+        - Requirements:
+            - Validate entry data
+            - Invoke DAO.saveAuthenticationUser()
+        - Arguments: AuthenticationUser
+        - Returns:  AuthenticationUser
+        - Validation:
+            - Password strength(length?)
+            - Username unique(DAO.getAuthenticationUser())
+            - Not sing up andmin(UserRole != ADMINISTRATOR)
+     */
 }
