@@ -26,4 +26,15 @@ public class AuthenticationController {
             throws MptUnauthorisedException, MptNotFoundException {
         return authenticationService.authenticateUser(user);
     }
+
+    /*
+    TODO: POST /sign-up:
+        - ags: AuthenticationUser,
+        - returns(OK):
+            - AuthenticationUser
+        - returns(ERROR):
+            - Wrong request arguments: 400 BAD REQUEST,
+            - User already exists: 409 CONFLICT
+
+    */
 }

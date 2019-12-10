@@ -15,6 +15,12 @@ public class PropertiesService {
     private String[] corsHosts;
     @Value("${firebase.admin.sdk.key.path}")
     private String firebaseAdminSdkKeyPath;
+    @Value("${security.jtw.secret.key}")
+    private String jwtSecretKey;
+    @Value("${security.jtw.token.validity.time}")
+    private String jwtTokenValidityTime;
+    @Value("${security.jwt.issuer}")
+    private String jwtIssuer;
 
     public BuildVersion getBuildVersion() {
         return new BuildVersion(buildVersion);
