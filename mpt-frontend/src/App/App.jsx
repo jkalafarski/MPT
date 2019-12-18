@@ -1,11 +1,21 @@
+// @flow strict
+
 import React from 'react';
 
-import './App.scss';
-
-const css = {
-  root: 'mpt-app',
-};
+import { Layout } from '@/Layout';
+import { Header } from '@/Header';
+import { Main } from '@/Main';
 
 export function App() {
-  return <p className={css.root}>Hello World!</p>;
+  return (
+    <Layout>
+      <Layout.Header>
+        <Header />
+      </Layout.Header>
+
+      <Layout.Main>
+        <Main />
+      </Layout.Main>
+    </Layout>
+  );
 }
