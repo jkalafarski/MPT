@@ -4,10 +4,10 @@ import React from 'react';
 
 import './SignInPage.scss';
 
-import {ImagePlaceholder} from '@/Placeholder';
+import { ImagePlaceholder } from '@/Placeholder';
 
 const css = {
-  layout: 'mpt-signin-layout'
+  layout: 'mpt-signin-layout',
 };
 
 export function SignInPage() {
@@ -15,9 +15,9 @@ export function SignInPage() {
     <div className={css.layout}>
       <ImagePlaceholder fullHeight />
 
-      <div style={{width: 1000}}>asdasd</div>
+      <div style={{ width: 1000 }}>asdasd</div>
 
       <ImagePlaceholder fullHeight />
     </div>
-  );'90%'
+  );
 }

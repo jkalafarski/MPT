@@ -1,3 +1,3 @@
 // @flow strict
 
-export {HomePage} from './HomePage';
+export { HomePage } from './HomePage';

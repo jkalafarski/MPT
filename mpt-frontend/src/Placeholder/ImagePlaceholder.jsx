@@ -1,24 +1,24 @@
 // @flow strict
 
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import cx from 'classnames';
 
 const css = {
   placeholder: 'mpt-image-placeholder',
-  fullHeight: 'mpt-image-placeholder--full-height'
+  fullHeight: 'mpt-image-placeholder--full-height',
 };
 
 type PropsType = $ReadOnly<{
-  fullHeight?: boolean
+  fullHeight?: boolean,
 }>;
 
 export function ImagePlaceholder(props: PropsType) {
-  const {fullHeight} = props;
+  const { fullHeight } = props;
 
   const wrapperRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [canvasSize, setCanvasSize] = useState({width: 0, height: 0});
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -29,7 +29,7 @@ export function ImagePlaceholder(props: PropsType) {
 
     const rect = wrapper.getBoundingClientRect();
 
-    setCanvasSize({width: rect.width, height: rect.height});
+    setCanvasSize({ width: rect.width, height: rect.height });
   }, []);
 
   useEffect(() => {
@@ -52,14 +52,13 @@ export function ImagePlaceholder(props: PropsType) {
     ctx.stroke();
   }, [canvasSize]);
 
-
   const classes = cx(css.placeholder, {
-    [css.fullHeight]: fullHeight
-  })
+    [css.fullHeight]: fullHeight,
+  });
 
   return (
     <div className={classes} ref={wrapperRef}>
-      <canvas style={{width: '100%', height: '100%'}} ref={canvasRef} />
+      <canvas style={{ width: '100%', height: '100%' }} ref={canvasRef} />
     </div>
-  )
+  );
 }

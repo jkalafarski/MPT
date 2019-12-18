@@ -3,8 +3,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import {HomePage} from '@/HomePage'
-import {SignInPage} from '@/SignInPage';
+import { HomePage } from '@/HomePage';
+import { SignInPage } from '@/SignInPage';
 
 export function Main() {
   return (

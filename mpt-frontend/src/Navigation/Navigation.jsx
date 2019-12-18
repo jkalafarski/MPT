@@ -1,9 +1,9 @@
 // @flow strict
 
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import './Navigation.scss'
+import './Navigation.scss';
 import { NavigationItem } from './NavigationItem';
 
 const css = {
@@ -12,7 +12,7 @@ const css = {
 
 type NavigationItemDataType = $ReadOnly<{
   label: string,
-  linkTo: string
+  linkTo: string,
 }>;
 
 type PropsType = $ReadOnly<{
@@ -27,10 +27,11 @@ export function Navigation(props: PropsType) {
   return (
     <div className={css.nav}>
       {items.map(item => (
-        <NavigationItem 
-          key={item.label} 
-          label={item.label} 
-          onClick={() => history.push(item.linkTo)} />
+        <NavigationItem
+          key={item.label}
+          label={item.label}
+          onClick={() => history.push(item.linkTo)}
+        />
       ))}
     </div>
   );
