@@ -1,3 +1,12 @@
 {
-  "eslint.enable": true
+  "flow.enabled": true,
+  "eslint.enable": true,
+
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }

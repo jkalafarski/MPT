@@ -1,0 +1,15 @@
+.mpt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    flex-basis: 300px;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 3rem;
+    color: $color-primary-light;
+    background-color: $color-primary-dark;
+    text-transform: uppercase;
+  }
+}
