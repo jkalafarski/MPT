@@ -9,6 +9,8 @@ import mtp.service.token.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ExecutionException;
+
 
 @Service
 public class AuthenticationService {
@@ -19,11 +21,11 @@ public class AuthenticationService {
     private TokenService tokenService;
 
     public String authenticateUser(UserLoginDTO userDTO)
-            throws MptUnauthorisedException, MptNotFoundException {
+            throws MptUnauthorisedException, MptNotFoundException, ExecutionException, InterruptedException {
         AuthenticationUser user = authenticationUserDAO
                 .getAuthenticationUser(userDTO.getUsername())
                 .orElseThrow(() ->
-                        new MptUnauthorisedException("User not found in mocked DB"));
+                        new MptUnauthorisedException("User not found in DB"));
         if(!user.getPassword().equals(userDTO.getPassword())) {
             throw new MptUnauthorisedException("Wrong user password");
         }

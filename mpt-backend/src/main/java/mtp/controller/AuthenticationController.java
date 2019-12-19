@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping("/authentication")
 public class AuthenticationController {
@@ -23,7 +25,7 @@ public class AuthenticationController {
      */
     @PostMapping("/login")
     public String login(@RequestBody UserLoginDTO user)
-            throws MptUnauthorisedException, MptNotFoundException {
+            throws MptUnauthorisedException, MptNotFoundException, ExecutionException, InterruptedException {
         return authenticationService.authenticateUser(user);
     }
 
