@@ -1,0 +1,29 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.1.RELEASE)
+
+2020-01-08 15:09:48.783  INFO 1 --- [           main] mtp.MtpApplication                       : Starting MtpApplication on 2dc5590f9f15 with PID 1 (/usr/src/mpt.jar started by root in /)
+2020-01-08 15:09:48.788  INFO 1 --- [           main] mtp.MtpApplication                       : No active profile set, falling back to default profiles: default
+2020-01-08 15:09:50.334  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-08 15:09:50.372  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-08 15:09:50.373  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2020-01-08 15:09:50.390  INFO 1 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+2020-01-08 15:09:50.482  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2020-01-08 15:09:50.482  INFO 1 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1634 ms
+2020-01-08 15:09:51.673  INFO 1 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 774661c0-e918-463a-98f0-5a38c6e70bae
+
+2020-01-08 15:09:51.787  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63fd4873, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b1bb3ab, org.springframework.security.web.header.HeaderWriterFilter@70d2e40b, org.springframework.web.filter.CorsFilter@1e11bc55, org.springframework.security.web.authentication.logout.LogoutFilter@fac80, mtp.configuration.TokenFilter@4748a0f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40bffbca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d8445d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7544a1e4, org.springframework.security.web.session.SessionManagementFilter@7646731d, org.springframework.security.web.access.ExceptionTranslationFilter@aec50a1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@200606de]
+2020-01-08 15:09:52.000  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-08 15:09:52.391  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2020-01-08 15:09:52.397  INFO 1 --- [           main] mtp.MtpApplication                       : Started MtpApplication in 3.983 seconds (JVM running for 4.454)
+2020-01-08 15:10:14.705  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-01-08 15:10:14.705  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-01-08 15:10:14.715  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-01-08 15:15:27.106  WARN 1 --- [nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
