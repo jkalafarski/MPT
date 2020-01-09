@@ -1,18 +1,23 @@
 package mtp.service;
 
+import mtp.dao.interfaces.InfluencerDAO;
 import mtp.dto.NewInfluencerProfileDTO;
 import mtp.model.InfluencerProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class InfluencerProfileService {
     @Autowired
     private UserService userService;
 
-    public NewInfluencerProfileDTO createInfluencerProfile(NewInfluencerProfileDTO profileDTO) {
+    @Autowired
+    private InfluencerDAO influencerDAO;
+
+    public NewInfluencerProfileDTO createInfluencerProfile(NewInfluencerProfileDTO profileDTO) throws ExecutionException, InterruptedException {
 
         InfluencerProfile influencerProfile = InfluencerProfile.builder()
                 .id(UUID.randomUUID().toString())
@@ -29,6 +34,7 @@ public class InfluencerProfileService {
                 .tag(profileDTO.getTag())
                 .build();
 
+        influencerDAO.addInfluencerProfile(influencerProfile);
         return profileDTO;
     }
 }

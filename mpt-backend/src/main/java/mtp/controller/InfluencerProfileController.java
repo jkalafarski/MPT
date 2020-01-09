@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping("/influencer/profile")
 public class InfluencerProfileController {
@@ -15,7 +17,7 @@ public class InfluencerProfileController {
     private InfluencerProfileService influencerProfileService;
 
     @PostMapping
-    public NewInfluencerProfileDTO createProfile(@RequestBody NewInfluencerProfileDTO profile) {
+    public NewInfluencerProfileDTO createProfile(@RequestBody NewInfluencerProfileDTO profile) throws ExecutionException, InterruptedException {
         return influencerProfileService.createInfluencerProfile(profile);
     }
 }
