@@ -28,7 +28,7 @@ public class TokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String requestTokenHeader = request.getHeader("Authorization");
-        if(requestTokenHeader == null || !requestTokenHeader.startsWith("Bearer ")) {
+        if(request.getServletPath().contains("authentication")) {
             // Skip if no authorization
             filterChain.doFilter(request, response);
             return;
@@ -56,3 +56,5 @@ public class TokenFilter extends OncePerRequestFilter {
         return Set.of(authority);
     }
 }
+
+
