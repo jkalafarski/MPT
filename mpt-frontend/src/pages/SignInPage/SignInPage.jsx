@@ -16,7 +16,7 @@ const css = {
 };
 
 export function SignInPage() {
-  const { username, password, updateUsername, updatePassword, submitForm } = useSignInForm();
+  const { username, password, updateUsername, updatePassword, submitForm, error } = useSignInForm();
 
   return (
     <div className={css.layout}>
@@ -40,6 +40,8 @@ export function SignInPage() {
             className={css.input}
             placeholder="Hasło"
           />
+
+          {!!error && <p style={{ textAlign: 'center', marginBottom: '24px' }}>{error}</p>}
 
           <button type="submit" className={css.submit} onClick={submitForm}>
             Zaloguj

@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { useAuthenticationContext } from '@/authentication';
+
 import './HomePage.scss';
 
 import { ImagePlaceholder, TextPlaceholder } from '@/Placeholder';
@@ -12,6 +14,12 @@ const css = {
 };
 
 export function HomePage() {
+  const { isLogged } = useAuthenticationContext();
+
+  if (isLogged) {
+    return null;
+  }
+
   return (
     <div className={css.layout}>
       <div className={css.wideBox}>
