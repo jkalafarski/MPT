@@ -1,26 +1,33 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { login } from '@/authentication/login';
+import { login, useAuthenticationContext } from '@/authentication';
 
 export function useSignInForm() {
+  const { onLogin } = useAuthenticationContext();
   const history = useHistory();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   async function submitForm() {
     if (!username || !password) {
       return;
     }
 
-    const isLogged = await login({
+    setError(null);
+
+    const { success } = await login({
       username,
       password,
     });
 
-    if (isLogged) {
-      history.push('/main');
+    if (success) {
+      onLogin();
+      history.push('/');
+    } else {
+      setError('Invalid username or password');
     }
   }
 
@@ -38,5 +45,6 @@ export function useSignInForm() {
     password,
     updatePassword,
     submitForm,
+    error,
   };
 }

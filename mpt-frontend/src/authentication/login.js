@@ -19,15 +19,19 @@ export async function login(creds: CredentialsType) {
       },
       body: JSON.stringify(creds),
     });
-    const token = await response.text();
 
+    if (!response.ok) {
+      return { success: false };
+    }
+
+    const token = await response.text();
     setToken(token);
 
-    return true;
+    return { success: true };
   } catch (err) {
     console.error('Unable to login');
 
-    return false;
+    return { success: false };
   }
 }
 
@@ -35,27 +39,23 @@ export function logout() {
   localStorage.removeItem(TOKEN_KEY);
 }
 
-export function isLogged() {
-  const token = getToken();
-
-  console.log(token, hasTokenExpired(token));
-
-  return !!token && !hasTokenExpired(token);
-}
-
 export function getLoggedUser() {
   const token = getToken();
 
   if (!token) {
-    return {};
+    return null;
   }
 
   try {
     const decodedToken = decode(token);
 
+    if (decodedToken.exp < Date.now() / 1000) {
+      return null;
+    }
+
     return { username: decodedToken.sub };
   } catch (err) {
-    return {};
+    return null;
   }
 }
 
@@ -65,14 +65,4 @@ function setToken(token: string) {
 
 function getToken() {
   return localStorage.getItem(TOKEN_KEY);
-}
-
-function hasTokenExpired(token: string) {
-  try {
-    const decodedToken = decode(token);
-
-    return decodedToken.exp < Date.now() / 1000;
-  } catch (err) {
-    return false;
-  }
 }

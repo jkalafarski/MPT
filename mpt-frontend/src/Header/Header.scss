@@ -12,4 +12,16 @@
     background-color: $color-primary-dark;
     text-transform: uppercase;
   }
+
+  &__info {
+    flex-grow: 1;
+    padding: 12px;
+    align-self: flex-start;
+  }
+
+  &__logout {
+    margin-top: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

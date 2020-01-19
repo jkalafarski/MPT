@@ -1,4 +1,3 @@
 // @flow strict
 
-export { HeaderUnlog } from './HeaderUnlog';
-export { HeaderLog } from './HeaderLog';
+export { Header } from './Header';
