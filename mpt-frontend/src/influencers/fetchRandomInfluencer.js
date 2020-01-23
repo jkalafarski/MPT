@@ -15,7 +15,7 @@ export async function fetchRandomInfluencer() {
     });
 
     const result = await fetch(
-      'http://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/influencer/profile/random',
+      'https://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/influencer/profile/random',
       {
         method: 'GET',
         headers,

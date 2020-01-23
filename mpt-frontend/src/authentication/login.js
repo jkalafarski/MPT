@@ -12,7 +12,7 @@ type CredentialsType = $ReadOnly<{
 export async function login(creds: CredentialsType) {
   try {
     const response = await fetch(
-      'http://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/authentication/login',
+      'https://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/authentication/login',
       {
         method: 'POST',
         headers: {
