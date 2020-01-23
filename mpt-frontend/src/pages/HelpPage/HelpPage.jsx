@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { TextPlaceholder } from '@/Placeholder';
-
 import './HelpPage.scss';
 
 export function HelpPage() {

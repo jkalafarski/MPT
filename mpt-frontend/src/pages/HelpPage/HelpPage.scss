@@ -1,6 +1,7 @@
 .help-page {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   & > div:first-child {
     flex-grow: 1;
@@ -44,7 +45,7 @@
   
   &__text {
     padding: 1rem; 
-	color: #aaaaaa; 
+	background-color: #aaaaaa; 
 	text-align: justify;
   }
 }
