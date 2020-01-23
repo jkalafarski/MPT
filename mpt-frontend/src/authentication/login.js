@@ -53,7 +53,7 @@ export function getLoggedUser() {
       return null;
     }
 
-    return { username: decodedToken.sub };
+    return { username: decodedToken.sub, token };
   } catch (err) {
     return null;
   }

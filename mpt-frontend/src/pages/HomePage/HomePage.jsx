@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useAuthenticationContext } from '@/authentication';
 
+import { InfluencerPage } from '../InfluencerPage/InfluencerPage';
 import './HomePage.scss';
 
 import { ImagePlaceholder, TextPlaceholder } from '@/Placeholder';
@@ -17,7 +18,7 @@ export function HomePage() {
   const { isLogged } = useAuthenticationContext();
 
   if (isLogged) {
-    return null;
+    return <InfluencerPage />;
   }
 
   return (

@@ -1,0 +1,59 @@
+.influencer-page {
+  width: 100%;
+
+  & > .mpt-image-placeholder {
+    height: 200px;
+  }
+}
+
+.influencer-panel {
+  height: 500px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__btn {
+    border: 0;
+    background: none;
+    flex-basis: 250px;
+    height: 100%;
+    font-size: 32px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__influencer-data {
+    display: flex;
+    height: 100%;
+  }
+
+  &__photo {
+    height: 100%;
+    width: 400px;
+    outline: 1px solid #333;
+    margin-right: 24px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 500px;
+    padding: 16px 32px 0 32px;
+
+    & > label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__info-box {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 4px 15px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+  }
+}
