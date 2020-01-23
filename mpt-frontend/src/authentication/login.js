@@ -11,14 +11,17 @@ type CredentialsType = $ReadOnly<{
 
 export async function login(creds: CredentialsType) {
   try {
-    const response = await fetch('http://localhost:8080/api/authentication/login', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/plain',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(creds),
-    });
+    const response = await fetch(
+      'http://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/authentication/login',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify(creds),
+      }
+    );
 
     if (!response.ok) {
       return { success: false };

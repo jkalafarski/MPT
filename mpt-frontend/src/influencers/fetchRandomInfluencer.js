@@ -14,10 +14,13 @@ export async function fetchRandomInfluencer() {
       Authorization: `Bearer ${loggedUser.token}`,
     });
 
-    const result = await fetch('http://localhost:8080/api/influencer/profile/random', {
-      method: 'GET',
-      headers,
-    });
+    const result = await fetch(
+      'http://Influyou-env.uirxi5ppvm.us-east-1.elasticbeanstalk.com:8080/api/influencer/profile/random',
+      {
+        method: 'GET',
+        headers,
+      }
+    );
     const influencer = await result.json();
 
     return Promise.resolve(influencer);
