@@ -7,7 +7,7 @@ import './HelpPage.scss';
 export function HelpPage() {
   return (
     <div className="help-page">
-      <TextPlaceholder>asdasd</TextPlaceholder>
+      <div className="help-page__text">Prosimy o kontakt w kwestiach związanych z użytkowaniem naszego serwisu przy użyciu poniższego formularza. Będziemy szczęśliwi, aby pomóc wam w kwestii waszych zapytań.<br><br>Jeżeli potrzebujesz pomocy technicznej lub chcesz nawiązac współpracę proszę napisz wiadomość e-mail lub zadzwoń na podany poniżej numer telefonu.</div>
 
       <div className="help-page__container">
         <div className="help-page__box">
@@ -24,10 +24,11 @@ export function HelpPage() {
           <h2 className="help-page__contact-headline">Kontakt</h2>
 
           <p>
-            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non
-            felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.
-            Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac,
-            laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis.
+            Email: influ-kontakt@influ.pl<br>
+			Telefon: 533 441 239<br>
+			Godziny pracy:<br>
+			poniedziałek - piątek 08:00 - 21:00<br>
+			sobota - niedziela 08:00 - 19:00<br>
           </p>
         </div>
       </div>
