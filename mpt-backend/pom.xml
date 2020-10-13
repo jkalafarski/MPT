@@ -16,7 +16,7 @@
 
         <springboot.starter.parent.version>2.1.1.RELEASE</springboot.starter.parent.version>
         <springboot.security.version>2.2.1.RELEASE</springboot.security.version>
-        <junit.version>4.9</junit.version>
+        <junit.version>4.13.1</junit.version>
         <maven-lombok.version>1.18.10.0</maven-lombok.version>
         <firebase.version>3.0.3</firebase.version>
         <lombok.version>1.18.10</lombok.version>
